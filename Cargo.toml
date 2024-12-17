@@ -1,0 +1,38 @@
+[package]
+name = "csvq"
+version = "0.1.0"
+edition = "2021"
+authors = ["Abdeldjalil Chougui"]
+license = "MIT"
+description = "Fast CSV/Parquet command line toolkit (xsv-style commands + SQL via Polars)"
+readme = "README.md"
+repository = "https://github.com/AbdeldjalilChougui/csvq"
+homepage = "https://github.com/AbdeldjalilChougui/csvq"
+keywords = ["csv", "parquet", "sql", "polars", "cli"]
+categories = ["command-line-utilities", "text-processing"]
+include = ["src/**/*", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE", "CITATION.cff"]
+
+[[bin]]
+name = "csvq"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4.6", features = ["derive"] }
+csv = "1.4"
+regex = "1"
+polars = { version = "0.55", default-features = false, features = ["lazy", "sql", "csv", "parquet", "dtype-date", "dtype-datetime"] }
+
+[dev-dependencies]
+assert_cmd = "2"
+tempfile = "3"
+predicates = "3"
+
+[profile.release]
+lto = "thin"
+codegen-units = 4
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
