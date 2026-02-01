@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+title: "csvq"
+abstract: "Fast CSV/Parquet command line toolkit (xsv-style commands + SQL via Polars)"
+authors:
+  - family-names: Chougui
+    given-names: Abdeldjalil
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/AbdeldjalilChougui/csvq"
+url: "https://github.com/AbdeldjalilChougui/csvq"
+keywords: [csv, parquet, sql, polars, cli]
